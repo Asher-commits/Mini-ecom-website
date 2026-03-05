@@ -1,0 +1,284 @@
+/* ===========================
+   General Reset and Fonts
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.5;
+    padding: 20px;
+}
+
+/* ===========================
+   Forms: Sign Up / Login
+=========================== */
+form {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form h4 {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 500;
+}
+
+form input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+form p {
+    text-align: center;
+    margin-top: 12px;
+}
+
+form a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   Top Section
+=========================== */
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.top-stuffs input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.top-stuffs button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.top-stuffs button:hover {
+    background-color: #0069d9;
+}
+
+.top-buttons button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #444;
+}
+
+.top-buttons button:hover {
+    color: #007BFF;
+}
+
+/* ===========================
+   Trending Products & Lists
+=========================== */
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+ul li {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+}
+
+ul li img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+ul li h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    height: 40px; /* keep uniform height */
+    overflow: hidden;
+}
+
+ul li p {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+ul li button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2px;
+    transition: 0.3s;
+}
+
+.favBtn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.favBtn:hover {
+    background-color: #c0392b;
+}
+
+.theCartBtn {
+    background-color: #f39c12;
+    color: white;
+}
+
+.theCartBtn:hover {
+    background-color: #e67e22;
+}
+
+/* ===========================
+   After Search Section
+=========================== */
+#afterSearch {
+    margin-top: 20px;
+}
+
+#backBtn {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#backBtn:hover {
+    background-color: #0069d9;
+}
+
+/* ===========================
+   Favorites & Cart Section
+=========================== */
+#favoriteSection, #cart {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#favoriteSection h3, #cart h3 {
+    margin-bottom: 15px;
+}
+
+#favoriteSection button, #cart button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+#favoriteSection button:hover, #cart button:hover {
+    opacity: 0.8;
+}
+
+.removeFavBtn, .removeCartBtn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.removeFavBtn:hover, .removeCartBtn:hover {
+    background-color: #c0392b;
+}
+
+#checkoutBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#checkoutBtn:hover {
+    background-color: #45a049;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 768px) {
+    #top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-stuffs input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        justify-content: center;
+    }
+}
