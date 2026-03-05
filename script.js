@@ -44,6 +44,7 @@ const signInEmail = document.getElementById("signInEmail");
 const signInPassword = document.getElementById("signInPassword");
 const logInBtn = document.getElementById("logInBtn");
 const login = document.getElementById("login");
+const backButton = document.getElementById("backButton");
 
 
 //Storage (single source of truth)
@@ -549,3 +550,9 @@ logInBtn.addEventListener("click", function(e){
     e.preventDefault();                  // Prevent form submission
     logInFunctionality();                // Run login function
 });
+
+//Back button on the login page
+backButton.addEventListener("click", function(){
+    login.style.display = "none";
+    create.style.display = "block"
+})
