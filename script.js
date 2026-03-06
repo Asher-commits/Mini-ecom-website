@@ -102,30 +102,43 @@ function signUp(){
         return;
     }
 
-    // state.userData = [];
-
     const accountData = {
         firstName: firstName.value,
         lastName: lastName.value,
         email: email.value,
         password: password.value
     }
-    state.userData.push(accountData);
-    create.style.display = "none"
+   state.userData = JSON.parse(localStorage.getItem("users")) || [];
+   state.userData.push(accountData);
+   create.style.display = "none"
 
 
     //Save data to local storage
     localStorage.setItem("users", JSON.stringify(state.userData))
 
-
 }
 
-createAccountBtn.addEventListener("click", function(e){
-    e.preventDefault();
-    signUp();
-    login.style.display = "block"
+//--------
+//Does any previous account exist? (function)
+//--------
 
-});
+function doesAccountExist(){
+ let exist = JSON.parse(localStorage.getItem("users") || "[]");
+ state.userData = exist;
+
+ const emailInput = email.value.trim()
+ 
+ const existing = exist.find(function(exist){
+    return exist.email === emailInput
+ });
+
+ if(existing){
+    alert("You already have an account. Just log in please");
+    return true;
+ }
+return false;
+};
+
 
 
 //--------
@@ -155,20 +168,12 @@ function logInFunctionality(){
         alert(`Welcome back, ${matchedUser.firstName}!`);
         hide.style.display = "block"; // show the hidden section after login
         login.style.display = "none"; // hide login form
-        nombre.textContent = matchedUser.firstName.toUpperCase();
+        nombre.textContent = matchedUser.firstName[0].toUpperCase() + matchedUser.firstName.slice(1);
     } else {
         alert("Incorrect email or password");
     }
 
 }
-
-
-const naam = JSON.parse(localStorage.getItem("users") || "[]");
-
-if(naam.length > 0){
-    nombre.textContent = naam[0].firstName.toUpperCase();
-}
-
 
 
 //--------
@@ -377,9 +382,20 @@ function renderFavorites(){
         li.innerHTML = `<img src="${product.image}" width="100">
                         <h3>${product.title}</h3>
                         <p>$${product.price}</p>
+                        <button class="cart-button"><i class="fa-solid fa-cart-arrow-down"></i></button>
                         <button class="removeFavBtn">Remove</button>`;
 
-//Remove button functionality
+//Cart button functionality
+const cartButton = li.querySelector(".cart-button");
+
+cartButton.addEventListener("click", function(){
+    alert(`${product.title} added to cart!`)
+    state.cartData.push(product);
+    localStorage.setItem("cartData", JSON.stringify(state.cartData));
+})
+
+
+ //Remove button functionality
 const removeButton = li.querySelector(".removeFavBtn");
 
 removeButton.addEventListener("click", function(){
@@ -489,6 +505,15 @@ displayCartItemsUl.appendChild(priceText)
 //--------
 //Event listeners
 //--------
+
+// Event listener for create account button: triggers 2 functions
+createAccountBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    if(!doesAccountExist()){
+        signUp();
+        login.style.display = "block";
+    }
+});
 
 // Event listener for search button: triggers searchProducts function
 searchBtn.addEventListener("click", searchProducts);

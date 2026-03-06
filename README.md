@@ -10,6 +10,8 @@ Features
 
 - Display logged-in user's first name.
 
+- User can create one account with the same email.
+
 2.Product Display
 
 - Shows trending products (4 random items from API).
